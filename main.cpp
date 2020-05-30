@@ -35,7 +35,7 @@ std::vector<std::string> splitLinea(std::string linea) {
 
 
 int main() {
-    std::ifstream archivoLee("/home/lucas/Desktop/Taller-3/puntajes.csv");
+    std::ifstream archivoLee("/home/lucas/Desktop/Taller-03/puntajes.csv");
     std::string linea;
 
     // datos 0=rut 1=nem 2=ranking 3=matematica 4=lenguaje 5=ciencias 6=historia
@@ -68,11 +68,11 @@ int main() {
         
     }
     cout << "Promedio nem: " << promedio1 / cantLinea << endl;
-    cout << "Promedio nem: " << promedio1 / cantLinea << endl;
-    cout << "Promedio nem: " << promedio1 / cantLinea << endl;
-    cout << "Promedio nem: " << promedio1 / cantLinea << endl;
-    cout << "Promedio nem: " << promedio1 / cantLinea << endl;
-    cout << "Promedio nem: " << promedio1 / cantLinea << endl;
+    cout << "Promedio ranking: " << promedio2 / cantLinea << endl;
+    cout << "Promedio matematicas: " << promedio3 / cantLinea << endl;
+    cout << "Promedio lenguaje: " << promedio4 / cantLinea << endl;
+    cout << "Promedio ciencias: " << promedio5 / cantLinea << endl;
+    cout << "Promedio historia: " << promedio6 / cantLinea << endl;
     cout << "catnidad de lineas: " << cantLinea << endl;
     archivoLee.close();
 
