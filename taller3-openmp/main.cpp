@@ -1,14 +1,17 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <random>
+#include <omp.h>
+#include <ctime>
 #include <string>
+#include <time.h>
 #include <vector>
 #include <bits/stdc++.h>
 #include <math.h>
 
 
 using namespace std;
-<<<<<<< HEAD
 
 void countSort(int array[], int size);
 
@@ -18,21 +21,9 @@ void countSort(int array[], int size);
 std::vector<std::string> splitLinea(std::string linea) {
     // Se inicializa vector de tipo string, el cual será el que retornará la función
     std::vector<std::string> resultado;
-=======
->>>>>>> 29837f412270f5e0996bba1191a591514c42e383
 
-
-/**
- *
- * \param Linea del archivo a separar por ';'
- * \return Vector de tipo entero con los respectivos puntajes
- *
- */     
-
-vector<int> splitLinea(std::string linea) {
-    vector<int> resultado;
+    // Se inicializa variable tipo string en la cual se almacenarán cada puntaje
     std::string valor;
-<<<<<<< HEAD
     // Bucle for que recorrerá la linea leída desde el archivo
     for (int i = 0; i < linea.length(); i++) {
         // Se evalúa si la posicion i de linea es igual al caracter ';'
@@ -43,29 +34,15 @@ vector<int> splitLinea(std::string linea) {
             valor.clear();
         } else {
             // Se concatenan digitos. ejem: "1", "12", "123"
-=======
-    for(int i = 0; i < linea.size(); i++){
-        if(linea[i] == ';' ){
-            resultado.push_back(std::stoi(valor));
-            valor.clear();
-        }else{
->>>>>>> 29837f412270f5e0996bba1191a591514c42e383
             valor += linea[i];
         }
     }
     resultado.push_back(valor);
+    // Retorna el vector con los puntajes
     return resultado;
 }
 
-/** 
- *
- * \param Vector de tipo entero
- * \param Largo del vector 
- * \return Puntaje que mas se repite en el vector
- *
- */     
 
-<<<<<<< HEAD
 int main(int arc, char** argv) {
 
     // Se abre el archivo en modo lectura y se le da el parametro que se recibe por la terminal,
@@ -273,64 +250,6 @@ void countSort(std::vector<unsigned int> array, int size) {
     for (int i = 0; i < size; i++) {
         array[i] = output[i];
     }
-=======
-int moda(vector<int> arr, int largo) {
-    int num = 0, frecAct = 1, frecMax = 0;
-    for(int i=1; i<largo; i++) {
-        if(arr.at(i) == arr.at(i - 1)) {
-            frecAct++;
-        } else {
-            if(frecMax < frecAct) {
-                frecMax = frecAct;
-                num = arr.at(i - 1);
-                frecAct = 1;
-            } else {
-                frecAct = 1;
-            }
-        }
-    }
-    return num;
-}
-
-
-/** 
- *
- * \param Vector a ordenar
- * \param Indice inicial del vector
- * \param Indice final del vector
- * \return 
- *
- */     
-
-void quickSort(vector<int> *arreglo, int inicio,int fin){
-    int InicioLocal= inicio, FinLocal=fin;
-    float Temp, Pivote;
-    if(fin>inicio)
-    {
-        Pivote= (*arreglo).at((inicio+fin)/2);
-        while(InicioLocal<FinLocal)
-        {
-            while((InicioLocal<fin) && ((*arreglo).at(InicioLocal)<Pivote))  {++InicioLocal;}
-            while((FinLocal>inicio) && ((*arreglo).at(FinLocal)>Pivote)) {--FinLocal;}
-            if(InicioLocal<=FinLocal)
-            {
-                Temp=(*arreglo).at(InicioLocal);
-                (*arreglo).at(InicioLocal)=(*arreglo).at(FinLocal);
-                (*arreglo).at(FinLocal)=Temp;
-                ++InicioLocal;
-                --FinLocal;
-            }
-        }
-        if(inicio<FinLocal) quickSort(arreglo,inicio,FinLocal);
-        if(InicioLocal<fin) quickSort(arreglo,InicioLocal,fin);
-    }
-}
-
-int main() {
-    
-    std::cout << "Hello world" << std::endl;
-    return 0;
->>>>>>> 29837f412270f5e0996bba1191a591514c42e383
 }
 
 
