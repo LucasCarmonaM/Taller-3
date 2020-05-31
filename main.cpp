@@ -15,6 +15,9 @@ using namespace std;
 
 void countSort(int array[], int size);
 
+
+// Funcion que separa strings entre los punto y coma
+
 std::vector<std::string> splitLinea(std::string linea) {
     // Se inicializa vector de tipo string, el cual será el que retornará la función
     std::vector<std::string> resultado;
@@ -40,24 +43,24 @@ std::vector<std::string> splitLinea(std::string linea) {
 }
 
 
-// Counting sort in C++ programming
-
 int main(int arc, char** argv) {
 
+    // Se abre el archivo en modo lectura y se le da el parametro que se recibe por la terminal,
+    // este corresponde a la direccion donde se encuentra el archivo csv
     std::ifstream archivoLee(argv[1]);
     std::string linea;
 
-
-
     // datos 0=rut 1=nem 2=ranking 3=matematica 4=lenguaje 5=ciencias 6=historia
+    // Esti es global para pracitvamente todos los indices de las variables
     std::vector<std::string> datos;
+    
     unsigned int promedio1, promedio2, promedio3, promedio4, promedio5, promedio6;
     // cantidad de lineas para calcular promedio y otros
     float cantLinea = 0;
 
     //Se crea el arreglo que contendra los datos
     //vector<int> arreglo;
-
+    
     std::vector<unsigned int> arreglo1, arreglo2, arreglo3, arreglo4, arreglo5, arreglo6;
     arreglo1.clear();
     arreglo2.clear();
@@ -66,9 +69,11 @@ int main(int arc, char** argv) {
     arreglo5.clear();
     arreglo6.clear();
 
-    // ciclo que ejecuta mientras el archivo tenga lineas
-
+    
+    // Auxiliares que reciviran los valores cada linea que se lee.
     int aux1, aux2, aux3, aux4, aux5, aux6;
+    
+    // ciclo que ejecuta mientras el archivo tenga lineas
     while (getline(archivoLee, linea)) {
 
         datos = splitLinea(linea);
@@ -94,23 +99,23 @@ int main(int arc, char** argv) {
         arreglo5.push_back(aux5);
         arreglo6.push_back(aux6);
 
-        // Promedio nem
+        // suma para el promedio nem
         promedio1 += aux1;        
         
         
-        // Promedio ranking
+        // suma para el promedio ranking
         promedio2 += aux2;
         
-        // Promedio matematica
+        // suma para el promedio matematica
         promedio3 = promedio3 + aux3;
        
-        // Promedio lenguaje
+        // suma para el promedio lenguaje
         promedio4 = promedio4 + aux4;
         
-        // promedio ciencias
+        // suma para el promedio ciencias
         promedio5 += aux5;
         
-        // Promedio historia
+        // suma para el promedio historia
         promedio6 += aux6;
 
     }
@@ -137,6 +142,7 @@ int main(int arc, char** argv) {
 //    cout << "Promedio nem: " << promedio6 << endl;
 //    
 //    cout << "############################################" << endl;
+    
     float prom1 = promedio1/cantLinea;
     float prom2 = promedio2/cantLinea;
     float prom3 = promedio3/cantLinea;
