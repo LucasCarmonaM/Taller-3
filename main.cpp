@@ -51,7 +51,7 @@ int main(int arc, char** argv) {
 
     // datos 0=rut 1=nem 2=ranking 3=matematica 4=lenguaje 5=ciencias 6=historia
     std::vector<std::string> datos;
-    float promedio1, promedio2, promedio3, promedio4, promedio5, promedio6;
+    unsigned int promedio1, promedio2, promedio3, promedio4, promedio5, promedio6;
     // cantidad de lineas para calcular promedio y otros
     float cantLinea = 0;
 
@@ -59,9 +59,16 @@ int main(int arc, char** argv) {
     //vector<int> arreglo;
 
     std::vector<unsigned int> arreglo1, arreglo2, arreglo3, arreglo4, arreglo5, arreglo6;
+    arreglo1.clear();
+    arreglo2.clear();
+    arreglo3.clear();
+    arreglo4.clear();
+    arreglo5.clear();
+    arreglo6.clear();
 
     // ciclo que ejecuta mientras el archivo tenga lineas
 
+    int aux1, aux2, aux3, aux4, aux5, aux6;
     while (getline(archivoLee, linea)) {
 
         datos = splitLinea(linea);
@@ -69,61 +76,90 @@ int main(int arc, char** argv) {
 
         // CALCULO DE PROMEDIOS
         cantLinea += 1;
+        
+        
+        // Se llenan auxiliares
+        aux1 = (std::stoi(datos[1]));
+        aux2 = (std::stoi(datos[2]));
+        aux3 = (std::stoi(datos[3]));
+        aux4 = (std::stoi(datos[4]));
+        aux5 = (std::stoi(datos[5]));
+        aux6 = (std::stoi(datos[6]));
 
         // Arreglos con datos 0=rut 1=nem 2=ranking 3=matematica 4=lenguaje 5=ciencias 6=historia
-        arreglo1.push_back(std::stoi(datos[1]));
-        arreglo2.push_back(std::stoi(datos[2]));
-        arreglo3.push_back(std::stoi(datos[3]));
-        arreglo4.push_back(std::stoi(datos[4]));
-        arreglo5.push_back(std::stoi(datos[5]));
-        arreglo6.push_back(std::stoi(datos[6]));
+        arreglo1.push_back(aux1);
+        arreglo2.push_back(aux2);
+        arreglo3.push_back(aux3);
+        arreglo4.push_back(aux4);
+        arreglo5.push_back(aux5);
+        arreglo6.push_back(aux6);
 
         // Promedio nem
-        promedio1 += std::stof(datos[1]);
+        promedio1 += aux1;        
+        
+        
         // Promedio ranking
-        promedio2 += std::stof(datos[2]);
+        promedio2 += aux2;
+        
         // Promedio matematica
-        promedio3 += std::stof(datos[3]);
+        promedio3 = promedio3 + aux3;
+       
         // Promedio lenguaje
-        promedio4 += std::stof(datos[4]);
+        promedio4 = promedio4 + aux4;
+        
         // promedio ciencias
-        promedio5 += std::stof(datos[5]);
+        promedio5 += aux5;
+        
         // Promedio historia
-        promedio6 += std::stof(datos[6]);
+        promedio6 += aux6;
 
     }
     archivoLee.close();
 
-    cout << "Promedio nem: " << datos[1] << endl;
-    cout << "Promedio nem: " << datos[2] << endl;
-    cout << "Promedio nem: " << datos[3] << endl;
-    cout << "Promedio nem: " << datos[4] << endl;
-    cout << "Promedio nem: " << datos[5] << endl;
-    cout << "Promedio nem: " << datos[6] << endl;
-    cout << "############################################" << endl;
-    cout << "Promedio nem: " << promedio1 << endl;
-    cout << "Promedio nem: " << promedio2 << endl;
-    cout << "Promedio nem: " << promedio3 << endl;
-    cout << "Promedio nem: " << promedio4 << endl;
-    cout << "Promedio nem: " << promedio5 << endl;
-    cout << "Promedio nem: " << promedio6 << endl;
-    cout << "############################################" << endl;
-    float prom1 = promedio1 / cantLinea;
-    float prom2 = promedio2 / cantLinea;
-    float prom3 = promedio3 / cantLinea;
-    float prom4 = promedio4 / cantLinea;
-    float prom5 = promedio5 / cantLinea;
-    float prom6 = promedio6 / cantLinea;
+//    cout << "Promedio nem: " << datos[1] << endl;
+//    cout << "Promedio nem: " << datos[2] << endl;
+//    cout << "Promedio nem: " << datos[3] << endl;
+//    cout << "Promedio nem: " << datos[4] << endl;
+//    cout << "Promedio nem: " << datos[5] << endl;
+//    cout << "Promedio nem: " << datos[6] << endl;
+//    cout << "############################################" << endl;
+//    
+//    cout << "Promedio nem: " << promedio1 << endl;
+//    
+//    cout << "Promedio nem: " << promedio2 << endl;
+//    
+//    cout << "Promedio nem: " << promedio3 << endl;
+//    
+//    cout << "Promedio nem: " << promedio4 << endl;
+//    
+//    cout << "Promedio nem: " << promedio5 << endl;
+//    
+//    cout << "Promedio nem: " << promedio6 << endl;
+//    
+//    cout << "############################################" << endl;
+    float prom1 = promedio1/cantLinea;
+    float prom2 = promedio2/cantLinea;
+    float prom3 = promedio3/cantLinea;
+    float prom4 = promedio4/cantLinea;
+    float prom5 = promedio5/cantLinea;
+    float prom6 = promedio6/cantLinea;
 
-    cout << "Promedio nem: " << prom1 << endl;
-    cout << "Promedio ranking: " << prom2 << endl;
-    cout << "Promedio matematicas: " << prom3 << endl;
-    cout << "Promedio lenguaje: " << prom4 << endl;
-    cout << "Promedio ciencias: " << prom5 << endl;
-    cout << "Promedio historia: " << prom6 << endl;
+//    cout << "Promedio nem: " << prom1 << endl;
+//    cout << "Promedio ranking: " << prom2 << endl;
+//    cout << "Promedio matematicas: " << prom3 << endl;
+//    cout << "Promedio lenguaje: " << prom4 << endl;
+//    cout << "Promedio ciencias: " << prom5 << endl;
+//    cout << "Promedio historia: " << prom6 << endl;
 
     cout << "catnidad de lineas: " << cantLinea << endl;
-
+    
+    arreglo1.clear();
+    arreglo2.clear();
+    arreglo3.clear();
+    arreglo4.clear();
+    arreglo5.clear();
+    arreglo6.clear();
+    
 
 
 
@@ -146,14 +182,23 @@ int main(int arc, char** argv) {
     des4 = sqrt(des4);
     des5 = sqrt(des5);
     des6 = sqrt(des6);
-
-    cout << "Desviacion estandar nem: " << des1 << endl;
-    cout << "Desviacion estandar ranking: " << des2 << endl;
-    cout << "Desviacion estandar matematicas: " << des3 << endl;
-    cout << "Desviacion estandar lenguaje: " << des4 << endl;
-    cout << "Desviacion estandar ciencias: " << des5 << endl;
-    cout << "Desviacion estandar historia: " << des6 << endl;
-
+//
+//    cout << "Desviacion estandar nem: " << des1 << endl;
+//    cout << "Desviacion estandar ranking: " << des2 << endl;
+//    cout << "Desviacion estandar matematicas: " << des3 << endl;
+//    cout << "Desviacion estandar lenguaje: " << des4 << endl;
+//    cout << "Desviacion estandar ciencias: " << des5 << endl;
+//    cout << "Desviacion estandar historia: " << des6 << endl;
+    
+    
+    
+    cout << "===Nem===\n" << "Promedio: " << prom1 << "\n" << "Desviacion estandar: " << des1 << endl;
+    cout << "===Ranking===\n" << "Promedio: " << prom2 << "\n" << "Desviacion estandar: " << des2 << endl;
+    cout << "===Matematica===\n" << "Promedio: " << prom3 << "\n" << "Desviacion estandar: " << des3 << endl;
+    cout << "===Lenguaje===\n" << "Promedio: " << prom4 << "\n" << "Desviacion estandar: " << des4 << endl;
+    cout << "===Ciencias===\n" << "Promedio: " << prom5 << "\n" << "Desviacion estandar: " << des5 << endl;
+    cout << "===Historia===\n" << "Promedio: " << prom6 << "\n" << "Desviacion estandar: " << des6 << endl;
+    cout << "===Integrantes===\nLucas Carmona.\nYerko Foncea.\nBrayan Parra." << endl;
 
 
 }
